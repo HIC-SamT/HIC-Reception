@@ -25,15 +25,48 @@
 			}
 	</script>
     <style>
-      @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
-      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
-      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
-      body { font-family: 'Droid Serif'; }
-      h1, h2, h3 {
-        font-family: 'Yanone Kaffeesatz';
-        font-weight: normal;
-      }
-      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+    @import url(https://www.hic.navitas.com/font/corporatesbq-reg-webfont.woff);
+    
+	body { 
+		font-family: 'CorporateSBQ Regular', Arial, sans-serif;
+		color: white;
+	}
+      
+	  h1, h2, h3 {
+		font-family: 'Alte Haas Grotesk', Arial, sans-serif;
+		letter-spacing: normal;
+		color: white;
+    }
+    .remark-code, .remark-inline-code {
+		font-family: 'Ubuntu Mono';
+	}
+	
+	.remark-slide-content{
+		background: #009ee1;
+	}
+	.logo {
+	    position: relative;
+		left: 650px;
+		top: 15px;
+	}
+	.dateclock {
+	    position: relative;
+		right: 110px;
+		bottom: 40px;
+	}
+	img.staff {
+		position: relative;
+		display: block;
+		margin: auto;
+		bottom: 220px;
+	}
+	p {
+		margin: 0;
+		padding: 0;
+	}
+	h2 {
+		margin-top: 0;
+	}
     </style>
 </head>
 
@@ -41,22 +74,42 @@
 <div class="full">
     <textarea id="source">
 
-		class: center, middle
-
-		# Title
-
+		name: template
+		layout: true
+		<img class="logo" src="https://c3ccd77d3bc9155004bd-aef6d5625c7dc1784715667717e0c396.ssl.cf6.rackcdn.com/HIC_HIC_Logo_Lockup_REV.png" alt="Drawing" style="width: 450px;"/>
+		<iframe class="dateclock" src="https://freesecure.timeanddate.com/clock/i5euqyp2/n136/tluk/fs36/fcfff/tct/pct/ftb/tt0/td2/th1" width="710" height="44" frameborder="0" scrolling="no"></iframe>
 		---
-
-		# Agenda
-
-		1. Introduction
-		2. Deep-dive
-		3. ...
-
+		
+		<br><br><br><br><br><br><br>
+		.center[Welcome to HIC]
+		=======================
 		---
+		
+		Today's Timetable
+		------------------------
+		<div style="width: 30%; float:left">
+				.left[Please note some classes may be cancelled or have room changes. Check back regularly for any updates.]
+				.left[If you are unsure about your class please ask at Reception.]
+		</div>
 
-		# Introduction
-		<iframe id="Timetable" src="https://docs.google.com/spreadsheets/d/1grHNXKkVbmvnUZQIGXaLTUmvZy4aEY0siXVs_Uit-kc/pubhtml?gid=0&amp;single=true&amp;widget=false&amp;chrome=false&amp;headers=false&amp;range=B1:F24" width="680" height="510"></iframe>
+		<div style="width: 70%; float:right">
+			<iframe style="float: right" id="Timetable" src="https://docs.google.com/spreadsheets/d/1grHNXKkVbmvnUZQIGXaLTUmvZy4aEY0siXVs_Uit-kc/pubhtml?gid=0&amp;single=true&amp;widget=false&amp;chrome=false&amp;headers=false&amp;range=B1:F21" width="657" height="450" frameborder="0" scrolling="no"></iframe>
+		</div>
+		---
+		
+		.center[HIC Student Officers]
+		-----------------------------
+		.center[For any Academic and Student Support queries our HIC Student Officers are available during office hours, throughout the semester.  Please ask for **YOUR** Student Officer (below) at the HIC reception.]
+		<center><img class="staff" src="https://c3ccd77d3bc9155004bd-aef6d5625c7dc1784715667717e0c396.ssl.cf6.rackcdn.com/HIC_Student-Officers.png" width="100%"/></center>
+		---
+		
+		<center><img src="https://c3ccd77d3bc9155004bd-aef6d5625c7dc1784715667717e0c396.ssl.cf6.rackcdn.com/HIC_Film_Club_2_opt.gif" width="900px"/></center>
+		---
+		
+		<center><iframe src="https://snapwidget.com/embed/268871" width="1000" height="400" frameborder="0" scrolling="no"></iframe></center>
+		.center[Follow us on Instagram @hic_students]
+		---------------------------------------------
+		
 	</textarea>
 	
     <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
@@ -64,7 +117,7 @@
 	<script>
 		var slideshow = remark.create({ratio: '16:9'});
 	  
-		setInterval(function () {carousel(slideshow)}, 15000);
+		setInterval(function () {carousel(slideshow)}, 1500000);
 		function carousel(varObject) {
 			var slideCount = varObject.getSlideCount()-1;
 			var currentSlide = varObject.getCurrentSlideIndex();
@@ -73,7 +126,8 @@
 			}
 			else { varObject.gotoNextSlide(); }
 		}
-    </script>
+	</script>
+
 </div>
 </body>
 </html>
