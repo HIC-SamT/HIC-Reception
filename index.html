@@ -8,7 +8,7 @@
 	<meta http-equiv="Expires" content="0" />
 	
 	<script>
-		var refreshSeconds = 45;
+		var refreshSeconds = 30;
 		var timer=setInterval(function(){refreshFrame()}, refreshSeconds*1000);
 		
 		function refreshFrame()
@@ -246,7 +246,7 @@
 	<script>
 		var slideshow = remark.create({ratio: '16:9'});
 	  
-		setInterval(function () {carousel(slideshow)}, 15000);
+		setInterval(function () {carousel(slideshow)}, 10000);
 		function carousel(varObject) {
 			var slideCount = varObject.getSlideCount()-1;
 			var currentSlide = varObject.getCurrentSlideIndex();

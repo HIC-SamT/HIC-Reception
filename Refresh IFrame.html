@@ -1,0 +1,20 @@
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="0" />
+<script>
+	// update with the desired time to refresh the presentation (in seconds)
+	var refreshSeconds = 15;
+	var timer=setInterval(function(){refreshFrame()}, refreshSeconds*1000);
+	
+	function refreshFrame()
+		{
+			var iframe = document.getElementById('Timetable');
+			//iframe.src = iframe.src;
+			//document.getElementById('Timetable').contentWindow.location.reload(true);
+			if(iframe.src.indexOf('timestamp') > -1){ // Check if we still have a timestamp in the URL from a previous refresh
+			iframe.src = iframe.src.replace(/timestamp=[^&]+/, 'timestamp=' + Date.now()); // And if so, replace it instead of appending so the URL doesn't grow too long.
+			}else{ // Else we will append the timestamp
+			iframe.src += (iframe.src.indexOf('?') > -1 ? "&amp;" : "?") + 'timestamp=' + Date.now();// If the URL contains a ?, append &amp;timestamp=...; otherwise, append ?timestamp=...
+			}
+		}
+</script>
