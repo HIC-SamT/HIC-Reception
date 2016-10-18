@@ -14,7 +14,16 @@
 		
 		function refreshFrame()
 			{
-				var iframe = document.getElementById('Timetable');
+				var iframe = document.getElementById('TimetableAM');
+				//iframe.src = iframe.src;
+				//document.getElementById('Timetable').contentWindow.location.reload(true);
+				if(iframe.src.indexOf('timestamp') > -1){ // Check if we still have a timestamp in the URL from a previous refresh
+				iframe.src = iframe.src.replace(/timestamp=[^&]+/, 'timestamp=' + Date.now()); // And if so, replace it instead of appending so the URL doesn't grow too long.
+				}else{ // Else we will append the timestamp
+				iframe.src += (iframe.src.indexOf('?') > -1 ? "&amp;" : "?") + 'timestamp=' + Date.now();// If the URL contains a ?, append &amp;timestamp=...; otherwise, append ?timestamp=...
+				}
+				
+				var iframe = document.getElementById('TimetablePM');
 				//iframe.src = iframe.src;
 				//document.getElementById('Timetable').contentWindow.location.reload(true);
 				if(iframe.src.indexOf('timestamp') > -1){ // Check if we still have a timestamp in the URL from a previous refresh
@@ -85,7 +94,7 @@
 		=======================
 		---
 		
-		Today's Timetable
+		Today's Timetable AM
 		------------------------
 		<div style="width: 30%; float:left">
 				.left[Please note some classes may be cancelled or have room changes. **Check back regularly for any updates**.]
@@ -94,7 +103,20 @@
 		</div>
 
 		<div style="width: 70%; float:right">
-			<iframe style="float: right" id="Timetable" src="https://docs.google.com/spreadsheets/d/1grHNXKkVbmvnUZQIGXaLTUmvZy4aEY0siXVs_Uit-kc/pubhtml?gid=0&amp;single=true&amp;widget=false&amp;chrome=false&amp;headers=false&amp;range=B1:F21" width="657" height="450" frameborder="0" scrolling="no"></iframe>
+			<iframe style="float: right" id="TimetableAM" src="https://docs.google.com/spreadsheets/d/1grHNXKkVbmvnUZQIGXaLTUmvZy4aEY0siXVs_Uit-kc/pubhtml?gid=0&amp;single=true&amp;widget=false&amp;chrome=false&amp;headers=false&amp;range=B1:F21" width="665" height="450" frameborder="0" scrolling="no"></iframe>
+		</div>
+		---
+		
+		Today's Timetable PM
+		------------------------
+		<div style="width: 30%; float:left">
+				.left[Please note some classes may be cancelled or have room changes. **Check back regularly for any updates**.]
+				<br>
+				.left[If you are unsure about your class please ask at Reception.]
+		</div>
+
+		<div style="width: 70%; float:right">
+			<iframe style="float: right" id="TimetablePM" src="https://docs.google.com/spreadsheets/d/1grHNXKkVbmvnUZQIGXaLTUmvZy4aEY0siXVs_Uit-kc/pubhtml?gid=2035240530&amp;single=true&amp;widget=false&amp;chrome=false&amp;headers=false&amp;range=B1:F21" width="665" height="450" frameborder="0" scrolling="no"></iframe>
 		</div>
 		---
 		
