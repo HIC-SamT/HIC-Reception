@@ -38,7 +38,9 @@
 		
 		function refreshFrame2()
 			{
-				var iframe = document.getElementById('Instagram');
+				var iframe = document.getElementById('Instagram1');
+				iframe.src = iframe.src;
+				var iframe = document.getElementById('Instagram2');
 				iframe.src = iframe.src;
 				}
 	</script>
@@ -165,9 +167,14 @@
 		template: TimetablePM
 		---
 		
-		<center><iframe id="Instagram" src="https://snapwidget.com/embed/268871" width="1000" height="400" frameborder="0" scrolling="no"></iframe></center>
-		.center[Follow us on Instagram @hic_students]
-		---------------------------------------------
+		<div style="width: 37%; float:left; overflow: visible; background-color: white;">
+			<iframe id="Instagram1" src="https://snapwidget.com/embed/293044"  allowTransparency="true" frameborder="0" width="100%" height="500" frameborder="0" scrolling="no"></iframe>
+		</div>
+
+		<div style="width: 60%; float:right">
+			<iframe id="Instagram2" src="https://snapwidget.com/embed/268871" allowTransparency="true" frameborder="0" width="100%" height="350" frameborder="0" scrolling="no"></iframe>
+			<center><h2>Follow us on Instagram @hic_students</h2></center>
+		</div>
 		---
 		
 		template: TimetableAM
@@ -263,7 +270,7 @@
 	<script>
 		var slideshow = remark.create({ratio: '16:9'});
 	  
-		setInterval(function () {carousel(slideshow)}, 10000);
+		setInterval(function () {carousel(slideshow)}, 1000000);
 		function carousel(varObject) {
 			var slideCount = varObject.getSlideCount()-1;
 			var currentSlide = varObject.getCurrentSlideIndex();
