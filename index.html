@@ -44,94 +44,6 @@
 				iframe.src = iframe.src;
 				}
 	</script>
-	<script>
-	window.onload = function(){
-	//canvas init
-	var canvas = document.getElementById("canvas");
-	var ctx = canvas.getContext("2d");
-	
-	//canvas dimensions
-	var W = window.innerWidth;
-	var H = window.innerHeight;
-	canvas.width = W;
-	canvas.height = H;
-	
-	//snowflake particles
-	var mp = 25; //max particles
-	var particles = [];
-	for(var i = 0; i < mp; i++)
-	{
-		particles.push({
-			x: Math.random()*W, //x-coordinate
-			y: Math.random()*H, //y-coordinate
-			r: Math.random()*4+1, //radius
-			d: Math.random()*mp //density
-		})
-	}
-	
-	//Lets draw the flakes
-	function draw()
-	{
-		ctx.clearRect(0, 0, W, H);
-		
-		ctx.fillStyle = "rgba(255, 255, 255, 0.8)";
-		ctx.beginPath();
-		for(var i = 0; i < mp; i++)
-		{
-			var p = particles[i];
-			ctx.moveTo(p.x, p.y);
-			ctx.arc(p.x, p.y, p.r, 0, Math.PI*2, true);
-		}
-		ctx.fill();
-		update();
-	}
-	
-	//Function to move the snowflakes
-	//angle will be an ongoing incremental flag. Sin and Cos functions will be applied to it to create vertical and horizontal movements of the flakes
-	var angle = 0;
-	function update()
-	{
-		angle += 0.01;
-		for(var i = 0; i < mp; i++)
-		{
-			var p = particles[i];
-			//Updating X and Y coordinates
-			//We will add 1 to the cos function to prevent negative values which will lead flakes to move upwards
-			//Every particle has its own density which can be used to make the downward movement different for each flake
-			//Lets make it more random by adding in the radius
-			p.y += Math.cos(angle+p.d) + 1 + p.r/2;
-			p.x += Math.sin(angle) * 2;
-			
-			//Sending flakes back from the top when it exits
-			//Lets make it a bit more organic and let flakes enter from the left and right also.
-			if(p.x > W+5 || p.x < -5 || p.y > H)
-			{
-				if(i%3 > 0) //66.67% of the flakes
-				{
-					particles[i] = {x: Math.random()*W, y: -10, r: p.r, d: p.d};
-				}
-				else
-				{
-					//If the flake is exitting from the right
-					if(Math.sin(angle) > 0)
-					{
-						//Enter from the left
-						particles[i] = {x: -5, y: Math.random()*H, r: p.r, d: p.d};
-					}
-					else
-					{
-						//Enter from the right
-						particles[i] = {x: W+5, y: Math.random()*H, r: p.r, d: p.d};
-					}
-				}
-			}
-		}
-	}
-	
-	//animation loop
-	setInterval(draw, 33);
-}
-	</script>
     <style>
     @import url(https://www.hic.navitas.com/font/corporatesbq-reg-webfont.woff);
     
@@ -225,7 +137,7 @@
 				.left[<h1 style="font-size:30pt">Today's Timetable AM</h1>]
 				.left[Please note some classes may be cancelled or have room changes. **Check back regularly for any updates**.]
 				<br>
-				.left[If you are unsure about your class please ask at Reception.]
+				.left[Read your timetable online at <strong>hic.navitas.com/hic-reception</strong>]
 		</div>
 
 		<div style="width: 80%; float:right">
@@ -237,7 +149,7 @@
 				.left[<h1 style="font-size:30pt">Today's Timetable PM</h1>]
 				.left[Please note some classes may be cancelled or have room changes. **Check back regularly for any updates**.]
 				<br>
-				.left[If you are unsure about your class please ask at Reception.]
+				.left[Read your timetable online at <strong>hic.navitas.com/hic-reception</strong>]
 		</div>
 
 		<div style="width: 80%; float:right">
@@ -279,24 +191,18 @@
 		template: TimetablePM
 		---
 		
-		Physics Drop-In Classes
-		------------------------
-		<div style="width: 35%; float:left">
-			.left[Available for all students at all levels]
-			
-			.left[**Every Tuesday 1-2pm in HIC 10**]
-		
-			.left[+	For help with any Physics skills required]
-			.left[+	Revising class materials]
-			.left[+	Exam practice questions]
-			.left[+	Structuring exam answers]
-			
-			.left[Plus many more hints and tips to help you with you studies]
+		<div>
+		.center[<h1>Student Survey Feedback</h1>]
 		</div>
-
-		<div style="width: 65%; float:right">
-			<img src="https://c3ccd77d3bc9155004bd-aef6d5625c7dc1784715667717e0c396.ssl.cf6.rackcdn.com/HIC_Physics-Laser2.png" width="100%"/>
-		</div>
+		<br>
+			<div style="width: 48%; float:left">
+				.center[<h2>You Said:</h2>]
+				.center[<h3>We want much clearer semester calendar dates</h3>]
+			</div>
+			<div style="width: 48%; float:right">
+				.center[<h2>We Did:</h2>]
+				.center[<h3>Semester dates will be published on the Student Portal</h3>]
+			</div>
 		---
 		
 		template: TimetableAM
@@ -304,24 +210,18 @@
 		template: TimetablePM
 		---
 		
-		Accounting and Finance Drop-In Classes
-		------------------------
-		<div style="width: 35%; float:left">
-			.left[Available for all students at all levels]
-			
-			.left[**Every Thursday 1-2pm in HIC 10**]
-		
-			.left[+	For help with any Accounting and Finance skills required]
-			.left[+	Revising class materials]
-			.left[+	Exam practice questions]
-			.left[+	Structuring exam answers]
-			
-			.left[Plus many more hints and tips to help you with you studies]
+		<div>
+		.center[<h1>Student Survey Feedback</h1>]
 		</div>
-
-		<div style="width: 65%; float:right">
-			<img src="https://c3ccd77d3bc9155004bd-aef6d5625c7dc1784715667717e0c396.ssl.cf6.rackcdn.com/HIC_Business-DropIn.png" width="100%"/>
-		</div>
+		<br>
+			<div style="width: 48%; float:left">
+				.center[<h2>You Said:</h2>]
+				.center[<h3>We want more outdoor activities for international students</h3>]
+			</div>
+			<div style="width: 48%; float:right">
+				.center[<h2>We Did:</h2>]
+				.center[<h3>In addition to over 100 activities available at UH, HIC runs at least four outdoor activities plus weekly football training</h3>]
+			</div>
 		---
 		
 		template: TimetableAM
@@ -329,24 +229,75 @@
 		template: TimetablePM
 		---
 		
-		English Drop-In Classes
-		------------------------
-		<div style="width: 35%; float:left">
-			.left[Available for all students at all levels]
-			
-			.left[**Every Friday 1-2pm in HIC Lab**]
+		<div>
+		.center[<h1>Student Survey Feedback</h1>]
+		</div>
+		<br>
+			<div style="width: 48%; float:left">
+				.center[<h2>You Said:</h2>]
+				.center[<h3>We want more reasonable accommodation fees</h3>]
+			</div>
+			<div style="width: 48%; float:right">
+				.center[<h2>We Did:</h2>]
+				.center[<h3>Affordable off-campus accommodation is available at HIC Houses</h3>]
+			</div>
+		---
 		
-			.left[+	For help with any English skills required]
-			.left[+	Essay writing]
-			.left[+	Oral presentation skills]
-			.left[+	Structuring exam answers]
-			
-			.left[Plus many more hints and tips to help you with you studies]
-		</div>
+		template: TimetableAM
+		---
+		template: TimetablePM
+		---
 
-		<div style="width: 65%; float:right">
-			<img src="https://c3ccd77d3bc9155004bd-aef6d5625c7dc1784715667717e0c396.ssl.cf6.rackcdn.com/HIC_English-DropIn.png" width="100%"/>
+		<div>
+		.center[<h1>Student Survey Feedback</h1>]
 		</div>
+		<br>
+			<div style="width: 48%; float:left">
+				.center[<h2>You Said:</h2>]
+				.center[<h3>We don’t like having to come to the HIC Reception to check the TV screen for timetable information</h3>]
+			</div>
+			<div style="width: 48%; float:right">
+				.center[<h2>We Did:</h2>]
+				.center[<h3>Regularly updated live timetable information is now available Online. Access link has been sent to all students</h3>]
+			</div>
+		---
+		
+		template: TimetableAM
+		---
+		template: TimetablePM
+		---
+
+		<div>
+		.center[<h1>Student Survey Feedback</h1>]
+		</div>
+		<br>
+			<div style="width: 48%; float:left">
+				.center[<h2>You Said:</h2>]
+				.center[<h3>We want more opportunities and lessons about achieving our goals</h3>]
+			</div>
+			<div style="width: 48%; float:right">
+				.center[<h2>We Did:</h2>]
+				.center[<h3>The Academic Team is organising a motivational session on career planning during the 1701 semester</h3>]
+			</div>
+		---
+		
+		template: TimetableAM
+		---
+		template: TimetablePM
+		---
+		
+		<div>
+		.center[<h1>Student Survey Feedback</h1>]
+		</div>
+		<br>
+			<div style="width: 48%; float:left">
+				.center[<h2>You Said:</h2>]
+				.center[<h3>We want better furnishings in accommodation</h3>]
+			</div>
+			<div style="width: 48%; float:right">
+				.center[<h2>We Did:</h2>]
+				.center[<h3>The standard of the new on-campus rooms are much higher and bedding packs are provided for all students</h3>]
+			</div>
 		---
 		
 		template: TimetableAM
@@ -367,7 +318,7 @@
 	<script>
 		var slideshow = remark.create({ratio: '16:9'});
 	  
-		setInterval(function () {carousel(slideshow)}, 10000);
+		setInterval(function () {carousel(slideshow)}, 100000);
 		function carousel(varObject) {
 			var slideCount = varObject.getSlideCount()-1;
 			var currentSlide = varObject.getCurrentSlideIndex();
