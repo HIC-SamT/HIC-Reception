@@ -113,6 +113,12 @@
 		left: 0px;
 		z-index: 300;
 		}
+	.tg  {border-collapse:collapse;border-spacing:0;}
+	.tg td{font-family:Arial, sans-serif;font-size:22px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+	.tg th{font-family:Arial, sans-serif;font-size:24px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+	.tg .tg-baqh{text-align:center;vertical-align:top}
+	.tg .tg-1ar9{font-weight:bold;background-color:#00b9e4;color:#ffffff;text-align:center;vertical-align:top}
+	.tg .tg-amwm{font-weight:bold;text-align:center;vertical-align:top}
     </style>
 </head>
 
@@ -183,7 +189,40 @@
 		template: TimetablePM
 		---
 		
-	    	.center[<img style="width:75%" src="http://i.imgur.com/4jAGNIF.png"></img>]
+	    .center[<img style="width:75%" src="http://i.imgur.com/4jAGNIF.png"></img>]
+		---
+		
+		template: TimetableAM
+		---
+		template: TimetablePM
+		---
+		
+		.center[Drop-In Sessions]
+		-----------------------------
+		.center[Need extra help in your classes? HIC have drop-in sessions for the following subjects:]
+		<br />
+		<table class="tg" align="center">
+		  <tr>
+			<th class="tg-1ar9">SUBJECT</th>
+			<th class="tg-1ar9">DAY</th>
+		  </tr>
+		  <tr>
+			<td class="tg-amwm">Physics</td>
+			<td class="tg-baqh">Tuesday 1-2pm in HIC 10</td>
+		  </tr>
+		  <tr>
+			<td class="tg-amwm">Maths</td>
+			<td class="tg-baqh">Monday 1-2pm in HIC Lab</td>
+		  </tr>
+		  <tr>
+			<td class="tg-amwm">English</td>
+			<td class="tg-baqh">Thursday 1-2pm in HIC 10</td>
+		  </tr>
+		  <tr>
+			<td class="tg-amwm">Accounting</td>
+			<td class="tg-baqh">Tuesday 1-2pm in HIC 10</td>
+		  </tr>
+		</table>
 		---
 		
 		template: TimetableAM
