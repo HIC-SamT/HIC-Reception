@@ -1,3 +1,30 @@
+			<script>
+		var refreshSeconds = 10;
+		var timer=setInterval(function(){refreshFrame()}, refreshSeconds*1000);
+		
+		function refreshFrame()
+			{
+				var iframe = document.getElementById('TimetableAM');
+				//iframe.src = iframe.src;
+				//document.getElementById('Timetable').contentWindow.location.reload(true);
+				if(iframe.src.indexOf('timestamp') > -1){ // Check if we still have a timestamp in the URL from a previous refresh
+				iframe.src = iframe.src.replace(/timestamp=[^&]+/, 'timestamp=' + Date.now()); // And if so, replace it instead of appending so the URL doesn't grow too long.
+				}else{ // Else we will append the timestamp
+				iframe.src += (iframe.src.indexOf('?') > -1 ? "&amp;" : "?") + 'timestamp=' + Date.now();// If the URL contains a ?, append &amp;timestamp=...; otherwise, append ?timestamp=...
+				}
+				
+				var iframe = document.getElementById('TimetablePM');
+				//iframe.src = iframe.src;
+				//document.getElementById('Timetable').contentWindow.location.reload(true);
+				if(iframe.src.indexOf('timestamp') > -1){ // Check if we still have a timestamp in the URL from a previous refresh
+				iframe.src = iframe.src.replace(/timestamp=[^&]+/, 'timestamp=' + Date.now()); // And if so, replace it instead of appending so the URL doesn't grow too long.
+				}else{ // Else we will append the timestamp
+				iframe.src += (iframe.src.indexOf('?') > -1 ? "&amp;" : "?") + 'timestamp=' + Date.now();// If the URL contains a ?, append &amp;timestamp=...; otherwise, append ?timestamp=...
+				}
+			}
+	</script>
+
+
 		name: TimetableAM
 		<div style="width: 18%; float:left">
 				.left[<h1 style="font-size:30pt">Today's Timetable AM</h1>]
